@@ -1,0 +1,41 @@
+/*
+ * Decompiled with CFR 0_115.
+ * 
+ * Could not load the following classes:
+ *  javafx.application.HostServices
+ *  javafx.event.ActionEvent
+ *  javafx.event.Event
+ *  javafx.event.EventHandler
+ */
+package com.ti.et.elg.commonUISupport.commonActions;
+
+import com.ti.et.elg.commonUISupport.action.TIAction;
+import com.ti.et.elg.commonUISupport.commonActions.VisitTIEducationAction;
+import com.ti.et.elg.commonUISupport.commonConstants.CommonConstants;
+import com.ti.et.utils.logger.TILogger;
+import javafx.application.HostServices;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+
+public class VisitTIPrivacyPolicyAction
+extends TIAction {
+    private static final VisitTIPrivacyPolicyAction INSTANCE = new VisitTIPrivacyPolicyAction();
+
+    private VisitTIPrivacyPolicyAction() {
+        this.setName(VisitTIEducationAction.class.getSimpleName());
+        this.setEventHandler(new EventHandler<ActionEvent>(){
+
+            public void handle(ActionEvent actionEvent) {
+                CommonConstants.hostServices.showDocument("http://www.ti.com/corp/docs/legal/privacy.shtml");
+                TILogger.logInfo("VisitTIPrivacyPolicyAction", "Executing VisitTIPrivacyPolicyAction");
+            }
+        });
+    }
+
+    public static VisitTIPrivacyPolicyAction getInstance() {
+        return INSTANCE;
+    }
+
+}
+
